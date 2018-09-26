@@ -12,7 +12,7 @@ import com.udea.cart.model.Product;
 @RequestMapping(path = "/shoppingcart")
 public class ShoppingCartController {
 
-	@RequestMapping(path = "/deleteProducto", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(path = "/deleteProduct", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteProduct(@RequestParam String JsonProduct) {
 		try {
 			Product p = new Product();
@@ -30,26 +30,26 @@ public class ShoppingCartController {
 	}
 	
 	/** TO-DO*/
-	@RequestMapping(path = "/deleteProducto", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void cleanCar(@RequestParam String JsonProduct) {
+	@RequestMapping(path = "/cleanCart", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void cleanCart(@RequestParam String JsonProduct) {
 	
 	}
 	
 	/** TO-DO*/
-	@RequestMapping(path = "/getCar", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void getCar(@RequestParam String JsonProduct) {
+	@RequestMapping(path = "/getCart", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void getCart(@RequestParam String JsonProduct) {
 	
 	}
 	
 	/** TO-DO*/
-	@RequestMapping(path = "/checkOutcar", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void checkOutcar(@RequestParam String JsonProduct) {
+	@RequestMapping(path = "/checkOutCart", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void checkOutCart(@RequestParam String JsonProduct) {
 	
 	}
 	
 	/** TO-DO*/
-	@RequestMapping(path = "/CreateCar", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void CreateCar(@RequestParam String persona) {
+	@RequestMapping(path = "/CreateCart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void CreateCart(@RequestParam String persona) {
 	
 	}
 	
