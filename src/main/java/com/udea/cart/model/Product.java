@@ -1,19 +1,27 @@
 package com.udea.cart.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.google.gson.Gson;
 
 @Entity
+@Table
 public class Product {
 	
+	@Column
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private String idProduct;
+	
+	@Column
 	private int count;
+	
+	@Column
 	private double price;
 	
 	
