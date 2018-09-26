@@ -1,5 +1,7 @@
 package com.udea.cart.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,21 +9,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.google.gson.Gson;
-
+@SuppressWarnings("serial")
 @Entity
-@Table
-public class Product {
+@Table(name="products")
+public class Product implements Serializable {
 	
-	@Column
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="idProduct")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String idProduct;
 	
-	@Column
+	@Column(name="count")
 	private int count;
 	
-	@Column
+	@Column(name="price")
 	private double price;
 	
 	
@@ -29,44 +30,35 @@ public class Product {
 		
 	}
 	
-	
+	public Product(String idProduct, int count, double price) {
+		super();
+		this.idProduct = idProduct;
+		this.count = count;
+		this.price = price;
+	}
+
 	public String getIdProduct() {
 		return idProduct;
 	}
-	
-	
+
 	public void setIdProduct(String idProduct) {
 		this.idProduct = idProduct;
 	}
-	
-	
+
 	public int getCount() {
 		return count;
 	}
-	
-	
+
 	public void setCount(int count) {
 		this.count = count;
 	}
-	
-	
+
 	public double getPrice() {
 		return price;
 	}
-	
-	
+
 	public void setPrice(double price) {
 		this.price = price;
-	}
-	
-	
-	public Product setValuesFromJSON(String JsonString) {
-		Gson gson = new Gson();
-		return gson.fromJson(JsonString, this.getClass());
-	}
-	
-	public void delete() {
-		
 	}
 	
 }

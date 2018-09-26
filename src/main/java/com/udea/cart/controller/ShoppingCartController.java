@@ -14,13 +14,13 @@ public class ShoppingCartController {
 
 	@RequestMapping(path = "/deleteProduct", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteProduct(@RequestParam String JsonProduct) {
-		try {
+		/*try {
 			Product p = new Product();
 			p = p.setValuesFromJSON(JsonProduct);
 			p.delete();
 		}catch(Exception e) {
 			
-		}
+		}*/
 	}
 	
 	/** TO-DO*/

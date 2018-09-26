@@ -1,7 +1,6 @@
 package com.udea.cart.model;
 
-import java.util.List;
-
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,50 +8,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
+@SuppressWarnings("serial")
 @Entity
-@Table
-public class Cart {
+@Table(name="cart")	
+public class Cart implements Serializable {
 
-	@Column
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)	
-	private String id;
+	@Column(name="idCart")
+	@GeneratedValue(strategy = GenerationType.AUTO)	
+	private String idCart;
 	
-	@Column
-	private List<Product> products;
+
+	//private List<Product> products;
 	
-	@Column
-	private String person;
-	
-	
-	public String getId() {
-		return id;
+	@Column(name="idPerson")
+	private String idPerson;
+
+
+	public Cart(String idCart, String idPerson) {
+		super();
+		this.idCart = idCart;
+		this.idPerson = idPerson;
+	}	
+	public Cart() {
+			
 	}
-	
-	
-	public void setId(String id) {
-		this.id = id;
+	public String getIdCart() {
+		return idCart;
 	}
-	
-	
-	public List<Product> getProducts() {
-		return products;
+	public void setIdCart(String idCart) {
+		this.idCart = idCart;
 	}
-	
-	
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public String getIdPerson() {
+		return idPerson;
 	}
-	
-	
-	public String getPerson() {
-		return person;
-	}
-	
-	
-	public void setPerson(String person) {
-		this.person = person;
-	}
+	public void setIdPerson(String idPerson) {
+		this.idPerson = idPerson;
+	}	
 	
 }
