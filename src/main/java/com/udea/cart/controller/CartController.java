@@ -1,56 +1,58 @@
 package com.udea.cart.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udea.cart.model.Product;
-
+import com.udea.cart.service.Cart;
 @RestController
 @RequestMapping(path = "/shoppingcart")
-public class ShoppingCartController {
+public class CartController {
 
-	@RequestMapping(path = "/deleteProduct", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void deleteProduct(@RequestParam String JsonProduct) {
-		/*try {
-			Product p = new Product();
-			p = p.setValuesFromJSON(JsonProduct);
-			p.delete();
-		}catch(Exception e) {
-			
-		}*/
-	}
+	@Autowired
+	Cart ICart;
 	
+
 	/** TO-DO*/
-	@RequestMapping(path = "/addProduct", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void addProduct(@RequestParam String JsonProduct) {
-	
-	}
-	
-	/** TO-DO*/
-	@RequestMapping(path = "/cleanCart", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@DeleteMapping(path = "/cleanCart", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void cleanCart(@RequestParam String JsonProduct) {
 	
+		ICart.cleanCart(JsonProduct);
+		
 	}
 	
 	/** TO-DO*/
-	@RequestMapping(path = "/getCart", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/getCart",  produces = MediaType.APPLICATION_JSON_VALUE)
 	public void getCart(@RequestParam String JsonProduct) {
 	
+		ICart.getCart(JsonProduct);
+		
 	}
 	
 	/** TO-DO*/
-	@RequestMapping(path = "/checkOutCart", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PutMapping(path = "/checkOutCart", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void checkOutCart(@RequestParam String JsonProduct) {
 	
+		ICart.checkOutCart(JsonProduct);
+		
 	}
 	
 	/** TO-DO*/
-	@RequestMapping(path = "/CreateCart", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void CreateCart(@RequestParam String persona) {
+	@PostMapping(path = "/CreateCart", produces = MediaType.APPLICATION_JSON_VALUE)
+	public void createCart(@RequestParam String persona) {
 	
+		ICart.createCart(persona);
+		
 	}
+
+	
+	
 	
 }
