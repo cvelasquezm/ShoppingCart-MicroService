@@ -1,7 +1,10 @@
 package com.udea.cart.serviceImpl;
 
+import org.springframework.stereotype.Service;
+
 import com.udea.cart.service.Product;
 
+@Service
 public class ProductImpl implements Product{
 
 	@Override
