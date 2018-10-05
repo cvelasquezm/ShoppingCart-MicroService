@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udea.cart.service.Cart;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.udea.cart.service.CartService;
 @RestController
 @RequestMapping(path = "/shoppingcart")
 public class CartController {
 
 	@Autowired
-	Cart ICart;
+	CartService ICart;
 	
 
 	/** TO-DO*/
@@ -32,7 +33,12 @@ public class CartController {
 	@GetMapping(path = "/getCart",  produces = MediaType.APPLICATION_JSON_VALUE)
 	public void getCart(@RequestParam String JsonProduct) {
 	
-		ICart.getCart(JsonProduct);
+		try {
+			ICart.getCart(JsonProduct);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	

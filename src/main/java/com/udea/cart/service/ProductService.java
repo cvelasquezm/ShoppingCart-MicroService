@@ -1,6 +1,6 @@
 package com.udea.cart.service;
 
-public interface Product {
+public interface ProductService {
 	
 	public void deleteProduct(String JsonProduct);
 		

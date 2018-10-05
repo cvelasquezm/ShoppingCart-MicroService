@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.udea.cart.service.Product;
+import com.udea.cart.service.ProductService;
 
 @RestController
 @RequestMapping(path = "/product")
 public class ProductController {
 
 	@Autowired
-	Product IProduct;
+	ProductService IProduct;
 	
 	@DeleteMapping(path = "/deleteProduct", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteProduct(@RequestParam String JsonProduct) {

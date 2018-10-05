@@ -5,4 +5,8 @@ import com.udea.cart.model.Cart;
 
 public interface ICartJpaRepository  extends JpaRepository<Cart, String> {
 
+	void deleteCart(String idCart);
+	
+	Cart findByIdCart(String idCart);
+	
 }

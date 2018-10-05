@@ -2,10 +2,10 @@ package com.udea.cart.serviceImpl;
 
 import org.springframework.stereotype.Service;
 
-import com.udea.cart.service.Product;
+import com.udea.cart.service.ProductService;
 
 @Service
-public class ProductImpl implements Product{
+public class ProductImpl implements ProductService{
 
 	@Override
 	public void deleteProduct(String JsonProduct) {
