@@ -29,12 +29,6 @@ public class ProductController {
 		IProduct.deleteProduct(JsonProduct);
 	}
 	
-	/** TO-DO*/
-	@PutMapping(path = "/addProduct", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void addProduct(@RequestParam String JsonProduct) {
-	
-		IProduct.addProduct(JsonProduct);
-		
-	}
+
 		
 }

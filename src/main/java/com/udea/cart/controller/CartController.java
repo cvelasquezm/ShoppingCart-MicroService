@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.udea.cart.model.Product;
 import com.udea.cart.service.CartService;
 @RestController
 @RequestMapping(path = "/shoppingcart")
@@ -51,10 +53,10 @@ public class CartController {
 	}
 	
 	/** TO-DO*/
-	@PostMapping(path = "/CreateCart", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void createCart(@RequestParam String persona) {
+	@PostMapping(path = "/addProduct", produces = MediaType.APPLICATION_JSON_VALUE)
+	public void addProduct(@RequestBody Product product) {
 	
-		ICart.createCart(persona);
+		ICart.addProduct(product);
 		
 	}
 

@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,8 +14,10 @@ public class Product implements Serializable {
 	
 	@Id
 	@Column(name="idProduct")
-	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String idProduct;
+	
+	@Column(name="idCart")
+    private Long idCart;
 	
 	@Column(name="count")
 	private int count;
@@ -30,11 +30,12 @@ public class Product implements Serializable {
 		
 	}
 	
-	public Product(String idProduct, int count, double price) {
+	public Product(String idProduct, int count, double price,Long idCart) {
 		super();
 		this.idProduct = idProduct;
 		this.count = count;
 		this.price = price;
+		this.idCart = idCart;
 	}
 
 	public String getIdProduct() {
@@ -60,5 +61,15 @@ public class Product implements Serializable {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+    public Long getIdCart() {
+        return idCart;
+    }
+
+    public void setIdCart(Long idCart) {
+        this.idCart = idCart;
+    }
+	
+	
 	
 }

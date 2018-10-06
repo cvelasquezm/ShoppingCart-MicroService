@@ -16,7 +16,7 @@ public class Cart implements Serializable {
 	@Id
 	@Column(name="idCart")
 	@GeneratedValue(strategy = GenerationType.AUTO)	
-	private String idCart;
+	private Long idCart;
 	
 
 	//private List<Product> products;
@@ -25,7 +25,7 @@ public class Cart implements Serializable {
 	private String idPerson;
 
 
-	public Cart(String idCart, String idPerson) {
+	public Cart(Long idCart, String idPerson) {
 		super();
 		this.idCart = idCart;
 		this.idPerson = idPerson;
@@ -33,10 +33,10 @@ public class Cart implements Serializable {
 	public Cart() {
 			
 	}
-	public String getIdCart() {
+	public Long getIdCart() {
 		return idCart;
 	}
-	public void setIdCart(String idCart) {
+	public void setIdCart(Long idCart) {
 		this.idCart = idCart;
 	}
 	public String getIdPerson() {
