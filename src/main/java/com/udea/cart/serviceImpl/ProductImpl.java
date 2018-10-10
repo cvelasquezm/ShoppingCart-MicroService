@@ -1,9 +1,15 @@
 package com.udea.cart.serviceImpl;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.udea.cart.json.JsonConvert;
+import com.udea.cart.model.Cart;
 import com.udea.cart.model.Product;
+import com.udea.cart.repository.ICartJpaRepository;
 import com.udea.cart.repository.IProductJpaRepository;
 import com.udea.cart.service.ProductService;
 
@@ -13,10 +19,16 @@ public class ProductImpl implements ProductService{
     @Autowired
     IProductJpaRepository productJpaRepository;
     
+    
 	@Override
-	public void deleteProduct(String JsonProduct) {
-		//TODO Debe comunicarse con el inventario para decirle 
-		// q el producto separados lo libere
+	public void deleteProduct(String jsonproduct) throws JsonProcessingException, IOException {
+		Product product = JsonConvert.JsonToObject(jsonproduct);
+		CartImpl cartImpl = new CartImpl();
+		if (cartImpl.cartExists(product.getIdCart().toString())) {
+			productJpaRepository.updateCountProduct(product.getCount(), product.getIdCart(), product.getIdProduct());
+		}
+				
+		
 		
 	}
 

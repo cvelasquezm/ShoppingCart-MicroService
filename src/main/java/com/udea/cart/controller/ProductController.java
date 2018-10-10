@@ -1,5 +1,7 @@
 package com.udea.cart.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.udea.cart.service.ProductService;
 
 @RestController
@@ -19,14 +22,13 @@ public class ProductController {
 	
 	@DeleteMapping(path = "/deleteProduct", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void deleteProduct(@RequestParam String JsonProduct) {
-		/*try {
-			Product p = new Product();
-			p = p.setValuesFromJSON(JsonProduct);
-			p.delete();
-		}catch(Exception e) {
-			
-		}*/
-		IProduct.deleteProduct(JsonProduct);
+		try {
+			IProduct.deleteProduct(JsonProduct);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 

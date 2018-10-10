@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Product implements Serializable {
 	
 	@Id
-	@Column(name="idProduct")
+	@Column(name="idProduct", length = 10)
 	private String idProduct;
 	
 	@Column(name="idCart")

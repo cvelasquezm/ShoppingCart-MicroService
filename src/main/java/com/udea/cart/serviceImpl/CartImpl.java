@@ -53,7 +53,21 @@ public class CartImpl implements CartService {
 		
 		return CARRITO_NO_EXISTE;
 	}
+	
+	public boolean cartExists(String idCart) throws JsonProcessingException {
 
+		Cart cart = iCartJpaRepository.findByIdCart(idCart);
+
+		if (cartIsNotNull(cart)) {
+			
+			return true;
+
+		}
+		
+		return false;
+	}
+	
+	
 	@Override
 	public void checkOutCart(String JsonProduct) {
 		// TODO Auto-generated method stub
