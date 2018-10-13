@@ -22,7 +22,7 @@ public class ProductImpl implements ProductService{
     
 	@Override
 	public void deleteProduct(String jsonproduct) throws JsonProcessingException, IOException {
-		Product product = JsonConvert.JsonToObject(jsonproduct);
+		Product product = JsonConvert.JsonToProduct(jsonproduct);
 		CartImpl cartImpl = new CartImpl();
 		if (cartImpl.cartExists(product.getIdCart().toString())) {
 			productJpaRepository.updateCountProduct(product.getCount(), product.getIdCart(), product.getIdProduct());

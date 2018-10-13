@@ -14,9 +14,15 @@ public class JsonConvert {
 		return mapper.writeValueAsString(object);
 	}
 	
-	public static Product JsonToObject(String json) throws IOException {
+	public static Product JsonToProduct(String json) throws IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		Product product = mapper.readValue(json, Product.class);
 		return product;
+	}
+	
+	public static Cart JsonToCart(String json) throws IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		Cart cart = mapper.readValue(json, Cart.class);
+		return cart;
 	}
 }

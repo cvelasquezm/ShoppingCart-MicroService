@@ -1,6 +1,7 @@
 package com.udea.cart.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.udea.cart.model.Cart;
 import com.udea.cart.model.Product;
 
 public interface CartService {
@@ -9,7 +10,7 @@ public interface CartService {
 	
 	public String getCart(String idCart) throws JsonProcessingException;
 	
-	public void checkOutCart(String JsonProduct);
+	public void checkOutCart(String cartId);
 
     void addProduct(Product product);
 		

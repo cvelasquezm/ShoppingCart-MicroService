@@ -10,6 +10,7 @@ import com.udea.cart.model.Product;
 import com.udea.cart.repository.ICartJpaRepository;
 import com.udea.cart.service.CartService;
 import com.udea.cart.service.ProductService;
+import com.udea.kafka.Producer;
 
 @Service
 public class CartImpl implements CartService {
@@ -21,6 +22,9 @@ public class CartImpl implements CartService {
 	
 	@Autowired
 	ProductService productService;
+	
+	@Autowired
+	Producer producer;
 	
 
 	@Override
@@ -69,9 +73,17 @@ public class CartImpl implements CartService {
 	
 	
 	@Override
-	public void checkOutCart(String JsonProduct) {
-		// TODO Auto-generated method stub
+	public void checkOutCart(String cartId) {
+		
+		Cart cart = iCartJpaRepository.findByIdCart(cartId);
 
+		if (cartIsNotNull(cart)) {
+			
+			producer.publishEvent(cart);
+
+		}
+		
+		
 	}
 
 	private Long createCart(String idPersona) {

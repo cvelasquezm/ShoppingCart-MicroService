@@ -46,10 +46,9 @@ public class CartController {
 	
 	/** TO-DO*/
 	@PutMapping(path = "/checkOutCart", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void checkOutCart(@RequestParam String JsonProduct) {
+	public void checkOutCart(@RequestParam String cartId) {
 	
-		ICart.checkOutCart(JsonProduct);
-		
+		ICart.checkOutCart(cartId);	
 	}
 	
 	/** TO-DO*/
